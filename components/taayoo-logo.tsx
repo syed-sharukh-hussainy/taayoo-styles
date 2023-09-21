@@ -1,5 +1,20 @@
-const TaaYooLogo = ({ themeColor }: { themeColor: string | undefined }) => {
-  const color = themeColor === 'light' ? 'black' : 'white';
+'use client';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+
+const TaaYooLogo = () => {
+  const [themes, setThemes] = useState('');
+
+  const { theme, systemTheme } = useTheme();
+  useEffect(() => {
+    const selectedTheme =
+      theme === 'dark' || theme === 'light' ? theme : systemTheme;
+    if (selectedTheme) {
+      setThemes(selectedTheme);
+    }
+  }, [theme, systemTheme]);
+
+  const color = themes === 'light' ? 'black' : 'white';
   return (
     <svg
       height="26"

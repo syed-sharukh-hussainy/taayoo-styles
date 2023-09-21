@@ -12,17 +12,17 @@ import { useEffect, useState } from 'react';
 
 const Navbar = () => {
   const pathName = usePathname();
-  const [themes, setThemes] = useState('');
+  // const [themes, setThemes] = useState('');
 
-  const { theme, systemTheme } = useTheme();
+  // const { theme, systemTheme } = useTheme();
 
-  useEffect(() => {
-    const selectedTheme =
-      theme === 'dark' || theme === 'light' ? theme : systemTheme;
-    if (selectedTheme) {
-      setThemes(selectedTheme);
-    }
-  }, [theme, systemTheme]);
+  // useEffect(() => {
+  //   const selectedTheme =
+  //     theme === 'dark' || theme === 'light' ? theme : systemTheme;
+  //   if (selectedTheme) {
+  //     setThemes(selectedTheme);
+  //   }
+  // }, [theme, systemTheme]);
   const NavButtons =
     pathName === '/' ? (
       <li>
@@ -44,10 +44,10 @@ const Navbar = () => {
   return (
     <header className="w-full border-b px-10 z-50">
       <nav className="h-14 flex justify-between items-center">
-        <div className="flex items-center gap-3">
-          <TaaYooLogo themeColor={themes} />
+        <Link href="/" className="flex items-center gap-3">
+          <TaaYooLogo />
           <h1 className="font-black text-xl">TaaYoo</h1>
-        </div>
+        </Link>
         <ul className="flex items-center gap-3">
           {NavButtons}
           <li>
