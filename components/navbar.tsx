@@ -1,6 +1,5 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
 
 import { Button } from './ui/button';
@@ -8,21 +7,11 @@ import { ModeToggle } from './mode-toggle';
 
 import TaaYooLogo from './taayoo-logo';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { Paintbrush, Share } from 'lucide-react';
 
 const Navbar = () => {
   const pathName = usePathname();
-  // const [themes, setThemes] = useState('');
 
-  // const { theme, systemTheme } = useTheme();
-
-  // useEffect(() => {
-  //   const selectedTheme =
-  //     theme === 'dark' || theme === 'light' ? theme : systemTheme;
-  //   if (selectedTheme) {
-  //     setThemes(selectedTheme);
-  //   }
-  // }, [theme, systemTheme]);
   const NavButtons =
     pathName === '/' ? (
       <li>
@@ -33,10 +22,16 @@ const Navbar = () => {
     ) : (
       <>
         <li>
-          <Button>Themes</Button>
+          <Button size="sm" className="flex items-center gap-3">
+            <Paintbrush className="h-4 w-4" />
+            <p className="font-bold">Themes</p>
+          </Button>
         </li>
         <li>
-          <Button>Export</Button>
+          <Button size="sm" className="flex items-center gap-3">
+            <Share className="h-4 w-4" />
+            <p className="font-bold">Export</p>
+          </Button>
         </li>
       </>
     );
