@@ -16,7 +16,7 @@ const ThemesSection = () => {
       </p>
       <div className="w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
         <div className="mt-16">
-          <Marquee pauseOnHover autoFill>
+          <Marquee pauseOnHover>
             {LIST_OF_THEMES.map((theme, index) => (
               <div key={index} className="mr-3">
                 <Image
@@ -24,6 +24,7 @@ const ThemesSection = () => {
                   alt={theme.name}
                   width={300}
                   height={200}
+                  loading="eager"
                   className="w-[300px] h-auto rounded-lg"
                 />
               </div>
@@ -31,7 +32,7 @@ const ThemesSection = () => {
           </Marquee>
         </div>
         <div className="mt-3">
-          <Marquee pauseOnHover autoFill direction="right">
+          <Marquee pauseOnHover direction="right">
             {LIST_OF_THEMES.map((theme, index) => (
               <div key={index} className="mr-3">
                 <Image
@@ -39,6 +40,7 @@ const ThemesSection = () => {
                   alt={theme.name}
                   width={300}
                   height={200}
+                  loading="eager"
                   className="w-[300px] h-auto rounded-lg"
                 />
               </div>

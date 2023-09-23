@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
+import localFont from 'next/font/local';
 
 import { ThemeProvider } from '@/components/theme-provider';
 
-import localFont from 'next/font/local';
+import Navbar from '@/components/navbar';
 
 import '../styles/globals.css';
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -53,7 +52,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={satoshi.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <Navbar />
           <main>{children}</main>
         </ThemeProvider>

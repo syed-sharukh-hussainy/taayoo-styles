@@ -2,13 +2,16 @@ import { StateCreator } from 'zustand';
 
 export type FrameStylingSlice = {
   frameWidth: number;
-  framePadding: number;
+  framePadding: {
+    activePadding: number;
+    paddingValue: number;
+  };
   showFrameBackground: boolean;
   frameBackgroundColor: string[];
   gradientDirection: string;
 
   setFrameWidth: (frameWidth: number) => void;
-  setFramePadding: (framePadding: number) => void;
+  setFramePadding: (activePadding: number, paddingValue: number) => void;
   setShowFrameBackground: () => void;
   setFrameBackgroundColor: (frameBackgroundColor: string[]) => void;
   setGradientDirection: (gradientDirection: string) => void;
@@ -17,11 +20,14 @@ export type FrameStylingSlice = {
 export const createFrameStylingSlice: StateCreator<FrameStylingSlice> = (
   set
 ) => ({
-  frameWidth: 600,
-  framePadding: 64,
+  frameWidth: 700,
+  framePadding: {
+    activePadding: 2,
+    paddingValue: 64,
+  },
   showFrameBackground: true,
-  frameBackgroundColor: ['#ffff3f', '#16AB44'],
-  gradientDirection: 'to right',
+  frameBackgroundColor: ['#c621e5', '#7d7cf9'],
+  gradientDirection: '90deg',
 
   setFrameWidth: (frameWidth: number) => {
     set(() => ({
@@ -29,9 +35,12 @@ export const createFrameStylingSlice: StateCreator<FrameStylingSlice> = (
     }));
   },
 
-  setFramePadding(framePadding: number) {
+  setFramePadding(activePadding: number, paddingValue: number) {
     set(() => ({
-      framePadding,
+      framePadding: {
+        activePadding,
+        paddingValue,
+      },
     }));
   },
 

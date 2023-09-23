@@ -1,8 +1,8 @@
-// import EditorStyling from './editor-styling/editor-styling';
-// import FormatButton from './format-btn';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import FrameStyling from './frame-styling/frame-styling';
-// import WindowStyling from './window-styling/window-styling';
+import WindowStyling from './window-styling/window-styling';
+import EditorStyling from './editor-styling/editor-styling';
+import FormatButton from './format-btn';
 
 const Sidebar = () => {
   return (
@@ -10,10 +10,10 @@ const Sidebar = () => {
       <div className="border h-full rounded-lg relative">
         <ScrollArea className=" w-full h-full rounded-lg pb-20">
           <FrameStyling />
-          {/* <EditorStyling /> */}
-          {/* <WindowStyling /> */}
+          <WindowStyling />
+          <EditorStyling />
         </ScrollArea>
-        {/* <FormatButton /> */}
+        <FormatButton />
       </div>
     </aside>
   );

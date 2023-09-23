@@ -20,7 +20,7 @@ const SettingsItem = ({ label, children }: SettingsItemProps) => {
           openItem ? 'text-foreground rounded-b-none' : 'text-muted-foreground'
         )}
       >
-        <p className="font-black text-base">{label}</p>
+        <p className="font-black text-sm">{label}</p>
         <ChevronDown
           className={cn(
             'h-5 w-5 transition',
