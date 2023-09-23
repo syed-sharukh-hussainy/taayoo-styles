@@ -1,5 +1,5 @@
 'use client';
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useCallback, useEffect, useState } from 'react';
 import ReactCodeMirror from '@uiw/react-codemirror';
 import { getEditorTheme, getLanguage } from '@/lib/utils';
 import { EditorView } from 'codemirror';
@@ -24,7 +24,7 @@ const ReactCodeEditor = () => {
     setCode(e);
   };
 
-  const codeFormatter = async () => {
+  const codeFormatter = useCallback(async () => {
     try {
       const res = await axios.post('/api/format-code', {
         code,
@@ -34,10 +34,11 @@ const ReactCodeEditor = () => {
     } catch (e) {
       console.error(e);
     }
-  };
+  }, []);
 
   useEffect(() => {
     let isMounted = true;
+
     codeFormatter();
 
     return () => {
