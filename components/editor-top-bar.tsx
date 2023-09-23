@@ -3,6 +3,7 @@
 import { WindowHeaderOptions } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { useBoundStore } from '@/store/useBoundStore';
+import Image from 'next/image';
 import { useState } from 'react';
 
 const EditorTopBar = () => {
@@ -33,7 +34,13 @@ const EditorTopBar = () => {
               : `flex-${topBarPosition}`,
         }}
       >
-        <img src={topBar.topBarType} className="" />
+        <Image
+          src={topBar.topBarType}
+          width={60}
+          height={20}
+          className="w-auto h-auto"
+          alt={topBar.topBarName}
+        />
       </div>
       {showFilename && (
         <div

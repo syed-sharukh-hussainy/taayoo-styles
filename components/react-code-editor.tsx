@@ -43,7 +43,7 @@ const ReactCodeEditor = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [codeFormatter]);
 
   return (
     <ReactCodeMirror

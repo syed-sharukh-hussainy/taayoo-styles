@@ -8,6 +8,7 @@ import {
 import { TOPBAR_OPTIONS, WindowHeaderOptions } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { useBoundStore } from '@/store/useBoundStore';
+import Image from 'next/image';
 
 const WindowHeader = () => {
   const setShowWindowHeader = useBoundStore(
@@ -40,7 +41,14 @@ const WindowHeader = () => {
           <PopoverTrigger asChild>
             <button className="w-full h-10 cursor-pointer border border-foreground/20 outline-none rounded-lg flex mt-5 items-center p-2">
               <div className="flex py-3">
-                <img src={topBarType} />
+                <Image
+                  src={topBarType}
+                  alt="window topbar"
+                  width={60}
+                  height={20}
+                  loading="eager"
+                  className="w-auto h-auto"
+                />
               </div>
             </button>
           </PopoverTrigger>
@@ -60,7 +68,14 @@ const WindowHeader = () => {
                       : 'justify-start'
                   )}
                 >
-                  <img src={option.topBarType} />
+                  <Image
+                    src={option.topBarType}
+                    alt={option.topBarName}
+                    width={60}
+                    height={20}
+                    loading="eager"
+                    className="w-auto h-auto"
+                  />
                 </div>
               ))}
               <div className="w-full flex justify-between item-center text-center ">

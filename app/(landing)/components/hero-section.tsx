@@ -15,7 +15,7 @@ const HeroSection = () => {
       </p>
       <Link href="/screenshot-editor">
         <Button size="lg" className="mt-10 group">
-          <p>Let's Get Started</p>
+          <p>Let&apos;s Get Started</p>
           <ArrowUpCircle className="h-5 w-5 rotate-45 ml-4 group-hover:rotate-90 transition" />
         </Button>
       </Link>
