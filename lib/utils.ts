@@ -1,5 +1,7 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import * as htmlToImage from 'html-to-image';
+
 import * as themes from '@uiw/codemirror-themes-all';
 import { PRO_LANGUAGE_OPTIONS, THEMES_OPTIONS, THEMS_DATA } from './constants';
 
@@ -101,4 +103,34 @@ const createElementHelper = (dataUrl: string, fileName: string) => {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+};
+export const exportToPng = (
+  exportImage: HTMLElement,
+  fileName: string,
+  scale: number
+) => {
+  htmlToImage
+    .toPng(exportImage, { pixelRatio: scale })
+    .then((dataUrl) => createElementHelper(dataUrl, fileName));
+};
+
+export const exportToSvg = (
+  exportImage: HTMLElement,
+  fileName: string,
+  scale: number
+) => {
+  htmlToImage
+    .toSvg(exportImage, { pixelRatio: scale })
+    .then((dataUrl) => createElementHelper(dataUrl, fileName));
+};
+
+export const exportToJpeg = (
+  exportImage: HTMLElement,
+  fileName: string,
+  scale: number,
+  quality: number
+) => {
+  htmlToImage
+    .toJpeg(exportImage, { pixelRatio: scale, quality: quality })
+    .then((dataUrl) => createElementHelper(dataUrl, fileName));
 };

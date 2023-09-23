@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import Navbar from '@/components/navbar';
 
 import '../styles/globals.css';
+import { Toaster } from '@/components/ui/toaster';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -60,6 +61,7 @@ export default function RootLayout({
         >
           <Navbar />
           <main>{children}</main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

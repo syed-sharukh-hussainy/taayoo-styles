@@ -8,6 +8,8 @@ import { ModeToggle } from './mode-toggle';
 import TaaYooLogo from './taayoo-logo';
 import Link from 'next/link';
 import { Paintbrush, Share } from 'lucide-react';
+import ThemesSheet from './themes-sheet';
+import ExportToImage from './export-to-image';
 
 const Navbar = () => {
   const pathName = usePathname();
@@ -21,34 +23,22 @@ const Navbar = () => {
       </li>
     ) : (
       <>
-        <li>
-          <Button size="sm" className="flex items-center gap-3">
-            <Paintbrush className="h-4 w-4" />
-            <p className="font-bold">Themes</p>
-          </Button>
-        </li>
-        <li>
-          <Button size="sm" className="flex items-center gap-3">
-            <Share className="h-4 w-4" />
-            <p className="font-bold">Export</p>
-          </Button>
-        </li>
+        <ThemesSheet />
+        <ExportToImage />
       </>
     );
 
   return (
-    <header className="w-full border-b px-10 z-50">
-      <nav className="h-14 flex justify-between items-center">
+    <header className="bg-background fixed top-0 left-0 flex w-full  border-b px-5 justify-between items-center z-50">
+      <nav className="w-full h-14 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3">
           <TaaYooLogo />
           <h1 className="font-black text-xl">TaaYoo</h1>
         </Link>
-        <ul className="flex items-center gap-3">
+        <div className="flex items-center gap-3">
           {NavButtons}
-          <li>
-            <ModeToggle />
-          </li>
-        </ul>
+          <ModeToggle />
+        </div>
       </nav>
     </header>
   );
