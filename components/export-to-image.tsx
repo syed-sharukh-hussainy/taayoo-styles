@@ -44,7 +44,7 @@ const ExportToImage = () => {
       setIsLoading(true);
       const exportImage = document.getElementById('exportToImage');
       if (fileName === '') {
-        alert('filenaemis required');
+        alert('filename is required');
         return;
       }
       switch (fileFormatType) {
@@ -76,6 +76,8 @@ const ExportToImage = () => {
     <Dialog open={open}>
       <DialogTrigger asChild>
         <Button
+          role="button"
+          aria-pressed="false"
           // variant="outline"
           onClick={() => setOpen(true)}
           size="sm"

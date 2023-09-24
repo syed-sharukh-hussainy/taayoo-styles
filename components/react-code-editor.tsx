@@ -1,10 +1,9 @@
 'use client';
-import React, { Suspense, useCallback, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import ReactCodeMirror from '@uiw/react-codemirror';
 import { getEditorTheme, getLanguage } from '@/lib/utils';
 import { EditorView } from 'codemirror';
 import axios from 'axios';
-import '@/styles/react-code-editor.css';
 import { useBoundStore } from '@/store/useBoundStore';
 
 const ReactCodeEditor = () => {
@@ -20,31 +19,26 @@ const ReactCodeEditor = () => {
 
   const extensions = getLanguage(selectedLanguage);
 
-  const handleInputCode = (e: string) => {
-    setCode(e);
-  };
-
-  const codeFormatter = useCallback(async () => {
-    try {
-      const res = await axios.post('/api/format-code', {
-        code,
-      });
-
-      handleInputCode(res.data);
-    } catch (e) {
-      console.error(e);
-    }
-  }, []);
-
   useEffect(() => {
     let isMounted = true;
+
+    const codeFormatter = async () => {
+      try {
+        const res = await axios.post('/api/format-code', {
+          code,
+        });
+        setCode(res.data);
+      } catch (e) {
+        console.error(e);
+      }
+    };
 
     codeFormatter();
 
     return () => {
       isMounted = false;
     };
-  }, [codeFormatter]);
+  }, []);
 
   return (
     <ReactCodeMirror
@@ -68,7 +62,7 @@ const ReactCodeEditor = () => {
         closeBrackets: false,
         rectangularSelection: false,
       }}
-      onChange={(e) => handleInputCode(e)}
+      onChange={(e) => setCode(e)}
     />
   );
 };

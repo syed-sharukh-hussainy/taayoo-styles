@@ -45,17 +45,17 @@ const FEATURES_DATA: FeaturesProps[] = [
     icon: Share2,
     label: 'Seamless Sharing',
     description:
-      'Get an instant preview of your styled code snippet as you make changes, ensuring you achieve the perfect look.',
+      'Share your styled code snippets with other users, fostering a sense of community and enabling teamwork.',
   },
 ];
 
 const FeaturesSections = () => {
   return (
-    <section className="max-w-7xl mx-auto">
-      <h2 className="text-3xl font-bold mb-16 max-w-2xl text-center mx-auto">
+    <section className="max-w-7xl mx-auto px-5 md:px-0">
+      <h2 className="text-2xl md:text-3xl font-bold mb-16 max-w-2xl text-center mx-auto">
         Capture and Share Your Code in Style with Beautiful Screenshot Creator
       </h2>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="hidden md:grid grid-cols-3 gap-4">
         {FEATURES_DATA.map((feature, index) => (
           <div
             key={index}
@@ -67,6 +67,17 @@ const FeaturesSections = () => {
             <feature.icon className="h-8 w-8" />
             <h6 className="text-lg font-bold my-5">{feature.label}</h6>
             <p className="text-muted-foreground">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+      <div className="grid md:hidden grid-cols-1 gap-4">
+        {FEATURES_DATA.map((feature, index) => (
+          <div key={index} className={cn('p-8 rounded-xl shadow-md bg-muted')}>
+            <feature.icon className="h-8 w-8" />
+            <h6 className="text-base font-bold my-4">{feature.label}</h6>
+            <p className="text-muted-foreground text-sm">
+              {feature.description}
+            </p>
           </div>
         ))}
       </div>

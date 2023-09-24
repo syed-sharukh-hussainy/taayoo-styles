@@ -1,9 +1,8 @@
 'use client';
 
-import { cn, getGradientColor } from '@/lib/utils';
+import { getGradientColor } from '@/lib/utils';
 import { useBoundStore } from '@/store/useBoundStore';
 
-import styles from '@/styles/editor-container.module.css';
 import CustomEditor from './custom-editor';
 
 const ScreenShotEditorContainer = () => {
@@ -24,10 +23,15 @@ const ScreenShotEditorContainer = () => {
     : 'transparent';
 
   return (
-    <section className={cn('border rounded-lg', styles.editorContainerWrapper)}>
-      <div className={styles.editorContainerInnerWrapper} id="exportToImage">
+    <section
+      className="w-full  border rounded-lg mt-[4.5rem] mr-6 mb-4 pl-0 pr-6 pt-6 pb-6 select-none overflow-y-auto flex items-center justify-center bg-muted/50"
+      style={{
+        minHeight: 'calc(100vh - 90px)',
+      }}
+    >
+      <div className="relative" id="exportToImage">
         <div
-          className={styles.editorBackground}
+          className="flex items-center transition rounded-sm"
           style={{
             padding,
             background,

@@ -16,6 +16,7 @@ function CustomSwitch({ defaultValue, onChangeChecked }: CustomSwitchProps) {
   return (
     <label className="relative inline-block w-[45px] h-[25px]">
       <input
+        aria-label="custom switch"
         className="opacity-0 w-0 h0"
         type="checkbox"
         checked={isChecked}

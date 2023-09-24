@@ -17,7 +17,11 @@ const CustomDropDown = ({
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <div className="w-36 flex items-center justify-between border border-foreground/20 rounded-lg py-2 px-3 cursor-pointer hover:bg-muted">
+        <div
+          role="button"
+          aria-pressed="false"
+          className="w-36 flex items-center justify-between border border-foreground/20 rounded-lg py-2 px-3 cursor-pointer hover:bg-muted"
+        >
           <p className="capitalize text-xs truncate">{value}</p>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </div>

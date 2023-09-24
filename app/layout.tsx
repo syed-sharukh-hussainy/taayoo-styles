@@ -1,18 +1,12 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+
 import localFont from 'next/font/local';
 
 import { ThemeProvider } from '@/components/theme-provider';
-
 import Navbar from '@/components/navbar';
-
-import '../styles/globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
-});
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'TaaYoo Styles',

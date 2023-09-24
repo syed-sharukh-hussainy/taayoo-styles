@@ -26,7 +26,7 @@ export const createFrameStylingSlice: StateCreator<FrameStylingSlice> = (
     paddingValue: 64,
   },
   showFrameBackground: true,
-  frameBackgroundColor: ['#c621e5', '#7d7cf9'],
+  frameBackgroundColor: ['#6D7BF7', '#A5CAF5'],
   gradientDirection: '90deg',
 
   setFrameWidth: (frameWidth: number) => {

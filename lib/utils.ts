@@ -134,3 +134,15 @@ export const exportToJpeg = (
     .toJpeg(exportImage, { pixelRatio: scale, quality: quality })
     .then((dataUrl) => createElementHelper(dataUrl, fileName));
 };
+
+export const exportToBlob = async (
+  exportImage: HTMLElement,
+  scale: number,
+  quality: number
+) => {
+  const blob = await htmlToImage.toBlob(exportImage, {
+    pixelRatio: scale,
+    quality: quality,
+  });
+  return blob;
+};

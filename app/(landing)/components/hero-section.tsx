@@ -6,10 +6,10 @@ import React from 'react';
 const HeroSection = () => {
   return (
     <section className="max-w-3xl mx-auto text-center mt-32">
-      <h1 className="text-5xl font-black leading-tight">
+      <h1 className="text-3xl md:text-5xl font-black leading-tight">
         Transform Your Code Snippets into Stunning Visuals.
       </h1>
-      <p className="mt-5 mx-10 text-muted-foreground">
+      <p className="mt-5 mx-5 text-muted-foreground">
         With TaaYoo Styles, you can effortlessly create and beautify your code
         snippets, turning them into eye-catching code showcases
       </p>

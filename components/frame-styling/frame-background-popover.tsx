@@ -49,7 +49,11 @@ const FrameBackgroundPopover = () => {
   return (
     <Popover>
       <PopoverTrigger className="w-full">
-        <div className="border border-foreground/10 w-full h-8 rounded-lg p-1 mt-4">
+        <div
+          className="border border-foreground/10 w-full h-8 rounded-lg p-1 mt-4"
+          role="button"
+          aria-label="button"
+        >
           <div
             className="w-full h-full rounded-sm"
             style={{

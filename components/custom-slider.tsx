@@ -22,6 +22,7 @@ function CustomSlider({
 
   return (
     <input
+      aria-label="width slider"
       className="w-full"
       type="range"
       min={minValue}

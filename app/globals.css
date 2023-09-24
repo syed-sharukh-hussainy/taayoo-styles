@@ -10,6 +10,9 @@
 
 @layer base {
   :root {
+    --editor-padding-top: 30px;
+    --editor-padding-bottom: 30px;
+
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
@@ -170,4 +173,38 @@ input:checked + .custom-slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: transrgb(47, 60, 47) (26px);
   transform: translateX(20px);
+}
+
+.cm-editor {
+  border-radius: 10px;
+  padding-top: var(--editor-padding-top);
+  padding-bottom: var(--editor-padding-bottom);
+}
+
+.cm-gutter {
+  border-bottom-left-radius: 10px;
+}
+.cm-gutterElement {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0 !important;
+}
+
+.cm-gutters {
+  border-bottom-left-radius: 10px;
+  background-color: transparent !important;
+  border-right: 0 !important;
+  padding: 0 3px;
+}
+
+.cm-line {
+  padding: 0 !important;
+}
+.cm-scroller {
+  padding: 0 24px;
+}
+
+.cm-editor.cm-focused {
+  outline: 0;
 }

@@ -27,14 +27,13 @@ export const createEditorStylingSlice: StateCreator<EditorStylingSlice> = (
   set
 ) => ({
   code: 'import React from "react"; import "./App.css"; import Weather from "./components/Weather"; function App() { return (<div className="App"><Weather /></div>);}export default App;',
-  codeError: false,
   showLineNumber: false,
   language: 'JSX',
   theme: {
-    themeName: 'Abcdef',
+    themeName: 'Tokyo Night Storm',
     themeType: 'dark',
   },
-  selectedThemeColor: '#0f0f0f',
+  selectedThemeColor: '#24283b',
   fontFamily: 'JetBrains Mono',
   fontSize: 'medium',
   fontWeight: 600,

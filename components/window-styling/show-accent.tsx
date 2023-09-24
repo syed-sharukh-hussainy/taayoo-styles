@@ -7,7 +7,7 @@ const ShowAccent = () => {
 
   return (
     <div className="group flex items-center justify-between">
-      <SettingsTitle label="Show Accent" />
+      <SettingsTitle label="Accent" />
       <CustomSwitch
         defaultValue={false}
         onChangeChecked={() => setShowAccent()}

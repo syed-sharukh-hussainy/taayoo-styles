@@ -36,7 +36,11 @@ const ThemesSheet = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <div className="font-bold flex gap-3 items-center bg-primary text-primary-foreground px-3 py-1.5 rounded-lg hover:bg-primary/90 transition-colors cursor-pointer">
+        <div
+          role="button"
+          aria-pressed="false"
+          className="font-bold flex gap-3 items-center bg-primary text-primary-foreground px-3 py-1.5 rounded-lg hover:bg-primary/90 transition-colors cursor-pointer"
+        >
           <Paintbrush className="w-4 h-4" /> Themes
         </div>
       </SheetTrigger>

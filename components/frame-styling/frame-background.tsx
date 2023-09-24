@@ -24,6 +24,8 @@ const FrameBackground = () => {
         />
       </div>
       <div
+        role="button"
+        aria-label="Background"
         className={cn(
           'cubic-bezier-animation-a',
           showFrameBackground ? 'cubic-bezier-animation-b' : ''
