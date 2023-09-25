@@ -24,7 +24,7 @@ const ScreenShotEditorContainer = () => {
 
   return (
     <section
-      className="w-full  border rounded-lg mt-[4.5rem] mr-6 mb-4 pl-0 pr-6 pt-6 pb-6 select-none overflow-y-auto flex items-center justify-center bg-muted/50"
+      className="border rounded-lg mt-[4.5rem] mr-6 mb-4 pl-0 pr-6 pt-6 pb-6 select-none overflow-y-auto flex items-center justify-center bg-muted/50"
       style={{
         minHeight: 'calc(100vh - 90px)',
       }}
