@@ -1,5 +1,16 @@
-import ScreenShotEditorContainer from '@/components/screenshot-editor-container';
-import Sidebar from '@/components/sidebar';
+import dynamic from 'next/dynamic';
+
+const ScreenShotEditorContainer = dynamic(
+  () => import('@/components/screenshot-editor-container'),
+  {
+    ssr: false,
+    loading: () => <div>Loading...</div>,
+  }
+);
+
+const Sidebar = dynamic(() => import('@/components/sidebar'), {
+  ssr: false,
+});
 
 export default function ScreenshotEditorPage() {
   return (
