@@ -9,7 +9,7 @@ const HeroSection = () => {
       <h1 className="text-3xl md:text-5xl font-black leading-tight">
         Elevate your code snippets with impressive visuals.
       </h1>
-      <p className="mt-5 mx-5 text-muted-foreground">
+      <p className="mt-8 mx-5 text-muted-foreground text-base md:text-xl">
         Effortlessly create and beautify your code snippets with TaaYoo Styles,
         making them eye-catching code showcases.
       </p>
