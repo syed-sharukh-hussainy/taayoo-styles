@@ -3,7 +3,9 @@
 import { getGradientColor } from '@/lib/utils';
 import { useBoundStore } from '@/store/useBoundStore';
 
-import CustomEditor from './custom-editor';
+import dynamic from 'next/dynamic';
+
+const CustomEditor = dynamic(() => import('./custom-editor'), { ssr: false });
 
 const ScreenShotEditorContainer = () => {
   const showFrameBackground = useBoundStore(

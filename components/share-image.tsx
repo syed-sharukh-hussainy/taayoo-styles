@@ -29,7 +29,13 @@ const ShareImage = () => {
     }
   };
   return (
-    <Button size="sm" variant="outline" onClick={shareToLink}>
+    <Button
+      role="button"
+      aria-label="Share"
+      size="sm"
+      variant="outline"
+      onClick={shareToLink}
+    >
       <Share2 className="h-4 w-4" />
     </Button>
   );

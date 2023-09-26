@@ -3,16 +3,20 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 
 import { ThemeProvider } from '@/components/theme-provider';
-import Navbar from '@/components/navbar';
 import { Toaster } from '@/components/ui/toaster';
 
 import './globals.css';
+import dynamic from 'next/dynamic';
+import GoogleAnalytics from '@/components/google-analytics';
+import CookieBanner from '@/components/cookie-banner';
 
 export const metadata: Metadata = {
   title: 'TaaYoo Styles',
   description:
-    'Capture and Share Your Code in Style with TaaYoo Styles - Beautiful Screenshot Creator',
+    'Effortlessly create and beautify your code snippets with TaaYoo Styles, making them eye-catching code showcases.',
 };
+
+const Navbar = dynamic(() => import('@/components/navbar'), { ssr: false });
 
 const satoshi = localFont({
   src: [
@@ -46,6 +50,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <GoogleAnalytics GA_MEASUREMENT_ID="G-7CK10C8BC5" />
       <body className={satoshi.className}>
         <ThemeProvider
           attribute="class"
@@ -57,6 +62,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Toaster />
         </ThemeProvider>
+        <CookieBanner />
       </body>
     </html>
   );
