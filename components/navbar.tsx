@@ -19,7 +19,7 @@ const Navbar = () => {
   const pathName = usePathname();
 
   const NavButtons =
-    pathName === '/' ? (
+    pathName === '/' || pathName === '/cookies' ? (
       <Link href="/screenshot-editor">
         <Button size="sm">Get Started</Button>
       </Link>
@@ -30,6 +30,7 @@ const Navbar = () => {
         <ShareImage />
       </div>
     );
+
   return (
     <header className="bg-background fixed top-0 left-0 flex w-full  border-b px-5 justify-between items-center z-50">
       <nav className="w-full h-14 flex justify-between items-center">

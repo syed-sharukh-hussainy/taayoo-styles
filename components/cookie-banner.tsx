@@ -1,6 +1,7 @@
 'use client';
 
 import { getLocalStorage, setLocalStorage } from '@/lib/storage-helper';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function CookieBanner() {
@@ -23,17 +24,13 @@ export default function CookieBanner() {
     }
 
     setLocalStorage('cookie_consent', cookieConsent);
-
-    //For Testing
-    // console.log('Cookie Consent: ', cookieConsent);
   }, [cookieConsent]);
 
   return (
     <div
-      className={` w-[500px] 
-      ${
-        cookieConsent != null ? 'hidden' : 'flex'
-      } fixed bottom-10 left-10 right-0 p-5 justify-between items-center gap-4 bg-gray-700 rounded-lg shadow flex-col`}
+      className={`w-[500px] fixed bottom-10 left-10 right-0 p-5 justify-between items-center gap-4 bg-gray-700 rounded-lg shadow-xl flex-col ${
+        cookieConsent !== null ? 'hidden' : 'flex'
+      }`}
     >
       <div className="text-sm text-white">
         <p className="text-xl font-medium mb-5">We value your privacy</p>
@@ -41,10 +38,12 @@ export default function CookieBanner() {
           We use cookies to provide you with a better browsing experience,
           analyze site traffic, and personalize content. We also use third-party
           services such as Google Analytics to understand how you use our site
-          and to improve our services. By clicking "Allow cookies", you consent
-          to the use of cookies and the processing of your personal data for
-          these purposes. You may visit our Cookie Prefences page to learn more
-          about the types of cookies we use and how to manage your preferences.
+          and to improve our services. By clicking &quot;Allow cookies&quot;,
+          you consent to the use of cookies and the processing of your personal
+          data for these purposes. You may visit our{' '}
+          <Link href="/cookies">Cookie Prefences</Link>
+          page to learn more about the types of cookies we use and how to manage
+          your preferences.
         </p>
       </div>
 

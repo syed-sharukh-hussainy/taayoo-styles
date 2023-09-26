@@ -7,13 +7,18 @@ import { Toaster } from '@/components/ui/toaster';
 
 import './globals.css';
 import dynamic from 'next/dynamic';
-import GoogleAnalytics from '@/components/google-analytics';
+// import GoogleAnalytics from '@/components/google-analytics';
 import CookieBanner from '@/components/cookie-banner';
+import GoogleAnalytics from '@/components/google-analytics';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'TaaYoo Styles',
   description:
     'Effortlessly create and beautify your code snippets with TaaYoo Styles, making them eye-catching code showcases.',
+  alternates: {
+    canonical: ``,
+  },
 };
 
 const Navbar = dynamic(() => import('@/components/navbar'), { ssr: false });
@@ -50,7 +55,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <GoogleAnalytics GA_MEASUREMENT_ID="G-7CK10C8BC5" />
+      <Suspense fallback={<div>Loading...</div>}>
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-7CK10C8BC5" />
+      </Suspense>
       <body className={satoshi.className}>
         <ThemeProvider
           attribute="class"
@@ -62,7 +69,9 @@ export default function RootLayout({
           <main>{children}</main>
           <Toaster />
         </ThemeProvider>
-        <CookieBanner />
+        <Suspense fallback={<div>Loading...</div>}>
+          <CookieBanner />
+        </Suspense>
       </body>
     </html>
   );
