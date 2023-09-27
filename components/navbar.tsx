@@ -3,15 +3,19 @@
 import { usePathname } from 'next/navigation';
 
 import { Button } from './ui/button';
-import { ModeToggle } from './mode-toggle';
 
 import TaaYooLogo from './taayoo-logo';
 import Link from 'next/link';
-import ThemesSheet from './themes-sheet';
-import ExportToImage from './export-to-image';
-import ShareImage from './share-image';
 import { Poppins } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import dynamic from 'next/dynamic';
+
+const ThemesSheet = dynamic(() => import('./themes-sheet'), { ssr: false });
+const ExportToImage = dynamic(() => import('./export-to-image'), {
+  ssr: false,
+});
+const ShareImage = dynamic(() => import('./share-image'), { ssr: false });
+const ModeToggle = dynamic(() => import('./mode-toggle'), { ssr: false });
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['900'] });
 
