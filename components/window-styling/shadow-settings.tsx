@@ -1,14 +1,21 @@
 'use client';
 
-import CustomDropDown from '@/components/custom-dropdown';
-import SettingsTitle from '@/components/settings-title';
 import { Command, CommandItem } from '@/components/ui/command';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { SHADOW_OPTIONS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { useBoundStore } from '@/store/useBoundStore';
 import { Check } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
+
+const CustomDropDown = dynamic(() => import('@/components/custom-dropdown'), {
+  ssr: false,
+});
+
+const SettingsTitle = dynamic(() => import('@/components/settings-title'), {
+  ssr: false,
+});
 
 const ShadowSettings = () => {
   const [open, setOpen] = useState<boolean>(false);

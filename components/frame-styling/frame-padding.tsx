@@ -1,8 +1,12 @@
 'use client';
 
-import SettingsTitle from '@/components/settings-title';
 import { cn } from '@/lib/utils';
 import { useBoundStore } from '@/store/useBoundStore';
+import dynamic from 'next/dynamic';
+
+const SettingsTitle = dynamic(() => import('@/components/settings-title'), {
+  ssr: false,
+});
 
 const paddingSettings = [
   {

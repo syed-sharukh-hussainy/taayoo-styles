@@ -1,8 +1,14 @@
 'use client';
 
-import CustomSlider from '@/components/custom-slider';
-import SettingsTitle from '@/components/settings-title';
 import { useBoundStore } from '@/store/useBoundStore';
+import dynamic from 'next/dynamic';
+
+const CustomSlider = dynamic(() => import('@/components/custom-slider'), {
+  ssr: false,
+});
+const SettingsTitle = dynamic(() => import('@/components/settings-title'), {
+  ssr: false,
+});
 
 const FrameWidth = () => {
   const frameWidth = useBoundStore((state) => state.frameWidth);

@@ -1,9 +1,25 @@
 'use client';
-import SettingsItem from '@/components/settings-item';
-import WindowHeader from './window-header';
-import ShowAccent from './show-accent';
-import ShowFilename from './show-filename';
-import ShadowSettings from './shadow-settings';
+import dynamic from 'next/dynamic';
+
+const SettingsItem = dynamic(() => import('@/components/settings-item'), {
+  ssr: false,
+});
+
+const WindowHeader = dynamic(() => import('./window-header'), {
+  ssr: false,
+});
+
+const ShowAccent = dynamic(() => import('./show-accent'), {
+  ssr: false,
+});
+
+const ShowFilename = dynamic(() => import('./show-filename'), {
+  ssr: false,
+});
+
+const ShadowSettings = dynamic(() => import('./shadow-settings'), {
+  ssr: false,
+});
 
 const WindowStyling = () => {
   return (

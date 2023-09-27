@@ -1,11 +1,27 @@
 'use client';
-import SettingsItem from '@/components/settings-item';
-import LineNumber from './line-number';
-import ProgrammingLang from './programming-lang';
-import ThemeSettings from './theme-settings';
-import FontFamilySettings from './font-family-settings';
-import FontSizeSettings from './font-size-settings';
-import FontWeight from './font-weight';
+import dynamic from 'next/dynamic';
+
+const SettingsItem = dynamic(() => import('@/components/settings-item'), {
+  ssr: false,
+});
+const LineNumber = dynamic(() => import('./line-number'), {
+  ssr: false,
+});
+const ProgrammingLang = dynamic(() => import('./programming-lang'), {
+  ssr: false,
+});
+const ThemeSettings = dynamic(() => import('./theme-settings'), {
+  ssr: false,
+});
+const FontFamilySettings = dynamic(() => import('./font-family-settings'), {
+  ssr: false,
+});
+const FontSizeSettings = dynamic(() => import('./font-size-settings'), {
+  ssr: false,
+});
+const FontWeight = dynamic(() => import('./font-weight'), {
+  ssr: false,
+});
 
 const EditorStyling = () => {
   return (

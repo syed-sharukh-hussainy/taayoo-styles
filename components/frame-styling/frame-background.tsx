@@ -2,10 +2,18 @@
 
 import { cn } from '@/lib/utils';
 import { useBoundStore } from '@/store/useBoundStore';
+import dynamic from 'next/dynamic';
 
-import FrameBackgroundPopover from './frame-background-popover';
-import CustomSwitch from '@/components/custom-switch';
-import SettingsTitle from '@/components/settings-title';
+const FrameBackgroundPopover = dynamic(
+  () => import('./frame-background-popover'),
+  { ssr: false }
+);
+const CustomSwitch = dynamic(() => import('@/components/custom-switch'), {
+  ssr: false,
+});
+const SettingsTitle = dynamic(() => import('@/components/settings-title'), {
+  ssr: false,
+});
 
 const FrameBackground = () => {
   const showFrameBackground = useBoundStore(

@@ -1,8 +1,16 @@
 import { ScrollArea } from '@/components/ui/scroll-area';
-import FrameStyling from './frame-styling/frame-styling';
-import WindowStyling from './window-styling/window-styling';
-import EditorStyling from './editor-styling/editor-styling';
-import FormatButton from './format-btn';
+import dynamic from 'next/dynamic';
+
+const FrameStyling = dynamic(() => import('./frame-styling/frame-styling'), {
+  ssr: false,
+});
+const WindowStyling = dynamic(() => import('./window-styling/window-styling'), {
+  ssr: false,
+});
+const EditorStyling = dynamic(() => import('./editor-styling/editor-styling'), {
+  ssr: false,
+});
+const FormatButton = dynamic(() => import('./format-btn'), { ssr: false });
 
 const Sidebar = () => {
   return (

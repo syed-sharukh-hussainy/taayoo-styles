@@ -1,7 +1,14 @@
-import SettingsItem from '@/components/settings-item';
-import FrameWidth from './frame-width';
-import FramePadding from './frame-padding';
-import FrameBackground from './frame-background';
+import dynamic from 'next/dynamic';
+
+const SettingsItem = dynamic(() => import('@/components/settings-item'), {
+  ssr: false,
+});
+const FrameWidth = dynamic(() => import('./frame-width'));
+
+const FramePadding = dynamic(() => import('./frame-padding'), { ssr: false });
+const FrameBackground = dynamic(() => import('./frame-background'), {
+  ssr: false,
+});
 
 const FrameStyling = () => {
   return (

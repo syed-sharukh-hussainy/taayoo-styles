@@ -1,6 +1,13 @@
-import CustomSwitch from '@/components/custom-switch';
-import SettingsTitle from '@/components/settings-title';
 import { useBoundStore } from '@/store/useBoundStore';
+import dynamic from 'next/dynamic';
+
+const CustomSwitch = dynamic(() => import('@/components/custom-switch'), {
+  ssr: false,
+});
+
+const SettingsTitle = dynamic(() => import('@/components/settings-title'), {
+  ssr: false,
+});
 
 const LineNumber = () => {
   const setShowLineNumber = useBoundStore((state) => state.setShowLineNumber);
