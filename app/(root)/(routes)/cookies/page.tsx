@@ -1,14 +1,27 @@
 'use client';
 
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { getLocalStorage } from '@/lib/storage-helper';
-import { useState } from 'react';
+import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
 
+const CookiesButtons = dynamic(() => import('@/components/cookies-button'), {
+  ssr: false,
+});
 const Cookies = () => {
+  const [value, setValue] = useState('');
+
+  useEffect(() => {
+    const cookieConsent = getLocalStorage('cookie_consent', null);
+    if (cookieConsent) {
+      setValue('allow');
+    } else {
+      setValue('reject');
+    }
+  }, []);
+
   return (
     <section className="my-36 max-w-4xl mx-auto px-5 md:px-0">
-      <h1 className="text-4xl font-black mb-5">Manage Cookies Preference</h1>
+      <h2 className="text-4xl font-black mb-5">Manage Cookies Preference</h2>
       <p className="mb-10">
         Cookies are small text files that we use to enhance your experience on
         our website. They help us understand how you interact with our content
@@ -36,18 +49,21 @@ const Cookies = () => {
         <li>- The pages they visit.</li>
       </ul>
 
-      <h3>Cookie Preferences</h3>
+      <h3 className="mt-10 mb-2 font-bold text-xl">Cookie Preferences</h3>
       <p>You can change your cookie settings below.</p>
-      <RadioGroup defaultValue="reject">
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem value="allow" id="r1" />
-          <Label htmlFor="r1">Allow Cookies</Label>
-        </div>
-        <div className="flex items-center space-x-2">
-          <RadioGroupItem value="reject" id="r2" />
-          <Label htmlFor="r2">Reject Cookies</Label>
-        </div>
-      </RadioGroup>
+      <div className="border flex p-2 text-center w-fit rounded-xl mt-6 cursor-pointer transition">
+        <CookiesButtons
+          label="Allow Cookies"
+          value={value}
+          defaultValue="allow"
+        />
+
+        <CookiesButtons
+          label="Reject Cookies"
+          value={value}
+          defaultValue="reject"
+        />
+      </div>
     </section>
   );
 };

@@ -7,17 +7,29 @@ import { Toaster } from '@/components/ui/toaster';
 
 import './globals.css';
 import dynamic from 'next/dynamic';
-// import GoogleAnalytics from '@/components/google-analytics';
+
 import CookieBanner from '@/components/cookie-banner';
 import GoogleAnalytics from '@/components/google-analytics';
 import { Suspense } from 'react';
+import Loading from './loading';
 
 export const metadata: Metadata = {
   title: 'TaaYoo Styles',
   description:
     'Effortlessly create and beautify your code snippets with TaaYoo Styles, making them eye-catching code showcases.',
-  alternates: {
-    canonical: ``,
+  openGraph: {
+    title: 'TaaYoo Styles',
+    description:
+      'Effortlessly create and beautify your code snippets with TaaYoo Styles, making them eye-catching code showcases.',
+    url: 'https://taayoo-styles.vercel.app',
+    siteName: 'TaaYoo Styles',
+    locale: 'en_US',
+    type: 'website',
+    images: ['/opengraph-image.png', '/twitter-image.png'],
+  },
+  metadataBase: new URL('https://taayoo-styles.vercel.app'),
+  icons: {
+    icon: '/favicon.ico',
   },
 };
 
@@ -55,8 +67,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Suspense fallback={<div>Loading...</div>}>
-        <GoogleAnalytics GA_MEASUREMENT_ID="G-7CK10C8BC5" />
+      <Suspense fallback={<Loading />}>
+        <GoogleAnalytics
+          GA_MEASUREMENT_ID={`${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
       </Suspense>
       <body className={satoshi.className}>
         <ThemeProvider
@@ -69,7 +83,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Toaster />
         </ThemeProvider>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading />}>
           <CookieBanner />
         </Suspense>
       </body>

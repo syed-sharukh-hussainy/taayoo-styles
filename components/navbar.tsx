@@ -36,14 +36,14 @@ const Navbar = () => {
       <nav className="w-full h-14 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3">
           <TaaYooLogo />
-          <h1
+          <p
             className={cn(
               'hidden md:flex font-black text-xl',
               poppins.className
             )}
           >
             TaaYoo
-          </h1>
+          </p>
         </Link>
         <div className="flex items-center gap-3">
           {NavButtons}

@@ -1,10 +1,11 @@
 'use client';
-import React, { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import ReactCodeMirror from '@uiw/react-codemirror';
 import { getEditorTheme, getLanguage } from '@/lib/utils';
 import { EditorView } from 'codemirror';
 import axios from 'axios';
 import { useBoundStore } from '@/store/useBoundStore';
+import Loading from '@/app/loading';
 
 const ReactCodeEditor = () => {
   const code = useBoundStore((state) => state.code);
@@ -41,29 +42,31 @@ const ReactCodeEditor = () => {
   }, []);
 
   return (
-    <ReactCodeMirror
-      value={code}
-      autoFocus={true}
-      extensions={extensions ? [extensions, EditorView.lineWrapping] : []}
-      style={{
-        fontSize: fontSize,
-        fontWeight: fontWeight,
-      }}
-      theme={getEditorTheme(selectedTheme, selectedFontFamily)}
-      basicSetup={{
-        foldGutter: false,
-        autocompletion: false,
-        searchKeymap: false,
-        highlightActiveLine: false,
-        highlightSelectionMatches: false,
-        highlightActiveLineGutter: false,
-        lineNumbers: showLineNumber,
-        bracketMatching: true,
-        closeBrackets: false,
-        rectangularSelection: false,
-      }}
-      onChange={(e) => setCode(e)}
-    />
+    <Suspense fallback={<Loading />}>
+      <ReactCodeMirror
+        value={code}
+        autoFocus={true}
+        extensions={extensions ? [extensions, EditorView.lineWrapping] : []}
+        style={{
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+        }}
+        theme={getEditorTheme(selectedTheme, selectedFontFamily)}
+        basicSetup={{
+          foldGutter: false,
+          autocompletion: false,
+          searchKeymap: false,
+          highlightActiveLine: false,
+          highlightSelectionMatches: false,
+          highlightActiveLineGutter: false,
+          lineNumbers: showLineNumber,
+          bracketMatching: true,
+          closeBrackets: false,
+          rectangularSelection: false,
+        }}
+        onChange={(e) => setCode(e)}
+      />
+    </Suspense>
   );
 };
 

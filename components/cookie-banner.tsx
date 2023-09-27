@@ -9,6 +9,7 @@ export default function CookieBanner() {
     getLocalStorage('cookie_consent', null)
   );
 
+  const [display, setDisplay] = useState('');
   useEffect(() => {
     const storedCookieConsent = getLocalStorage('cookie_consent', null);
 
@@ -23,14 +24,18 @@ export default function CookieBanner() {
       });
     }
 
+    if (cookieConsent != null) {
+      setDisplay('hidden');
+    } else {
+      setDisplay('flex');
+    }
+
     setLocalStorage('cookie_consent', cookieConsent);
   }, [cookieConsent]);
 
   return (
     <div
-      className={`w-[500px] fixed bottom-10 left-10 right-0 p-5 justify-between items-center gap-4 bg-gray-700 rounded-lg shadow-xl flex-col ${
-        cookieConsent !== null ? 'hidden' : 'flex'
-      }`}
+      className={`w-[500px] fixed bottom-10 left-10 right-0 p-5 justify-between items-center gap-4 bg-slate-800 rounded-lg shadow-xl flex-col ${display}`}
     >
       <div className="text-sm text-white">
         <p className="text-xl font-medium mb-5">We value your privacy</p>
@@ -41,7 +46,9 @@ export default function CookieBanner() {
           and to improve our services. By clicking &quot;Allow cookies&quot;,
           you consent to the use of cookies and the processing of your personal
           data for these purposes. You may visit our{' '}
-          <Link href="/cookies">Cookie Prefences</Link>
+          <Link href="/cookies" className="text-violet-500">
+            Cookie Prefences
+          </Link>{' '}
           page to learn more about the types of cookies we use and how to manage
           your preferences.
         </p>

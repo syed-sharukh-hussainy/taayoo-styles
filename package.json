@@ -51,7 +51,9 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.5.3",
     "@types/gtag.js": "^0.0.14",
+    "cross-env": "^7.0.3",
     "prettier": "^3.0.3"
   }
 }

@@ -1,7 +1,9 @@
-import ReactCodeEditor from './react-code-editor';
-import EditorTopBar from './editor-top-bar';
 import { useBoundStore } from '@/store/useBoundStore';
-import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
+
+const ReactCodeEditor = dynamic(() => import('./react-code-editor'));
+
+const EditorTopBar = dynamic(() => import('./editor-top-bar'));
 
 const CustomEditor = () => {
   const frameWidth = useBoundStore((state) => state.frameWidth);

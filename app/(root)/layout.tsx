@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'TaaYoo Styles',
   description:
-    'Capture and Share Your Code in Style with TaaYoo Styles - Beautiful Screenshot Creator',
+    'Effortlessly create and beautify your code snippets with TaaYoo Styles,making them eye-catching code showcases',
 };
 
 export default function EditorLayout({

@@ -24,21 +24,24 @@ const Footer = () => {
           <Link href="/" className="text-sm">
             Privacy Policy
           </Link>
+          <Link href="/cookies" className="text-sm">
+            Cookie Prefences
+          </Link>
         </div>
       </div>
       <div className="text-sm py-6 bg-muted">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
           <p>&copy; 2023. TaaYoo Styles. All Rights Reserved.</p>
-          <p className="text-sm text-center mt-1 md:mt-0">
+          <div className="text-sm text-center mt-1 md:mt-0">
             Created With ❤️ by{' '}
             <Link
               target="_blank"
-              className="text-primary font-bold"
+              className="text-violet-500 font-bold"
               href="https://twitter.com/syed_sharukh_"
             >
               Syed Sharukh Hussainy
             </Link>
-          </p>
+          </div>
         </div>
       </div>
     </footer>

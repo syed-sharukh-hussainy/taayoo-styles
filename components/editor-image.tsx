@@ -2,7 +2,7 @@
 
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const EditorImage = () => {
   const [themes, setThemes] = useState('');
@@ -16,13 +16,11 @@ const EditorImage = () => {
     }
   }, [theme, systemTheme]);
 
-  const color = themes === 'light' ? 'light' : 'dark';
-
   return (
     <section className="flex justify-center my-16 px-5 md:my-32 md:px-0">
       <div className="flex items-center justify-center bg-primary w-full max-w-7xl h-[250px] md:h-[700px] rounded-xl md:rounded-lg">
         <Image
-          src={`/${color}-editor-bg.webp`}
+          src={`/${themes === 'light' ? 'light' : 'dark'}-editor-bg.webp`}
           alt="screenshot-editor"
           width={1500}
           height={1500}
