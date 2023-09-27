@@ -1,12 +1,11 @@
 'use client';
 
+import Loading from '@/app/loading';
+import CookiesButtons from '@/components/cookies-button';
 import { getLocalStorage } from '@/lib/storage-helper';
-import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
 
-const CookiesButtons = dynamic(() => import('@/components/cookies-button'), {
-  ssr: false,
-});
+import { Suspense, useEffect, useState } from 'react';
+
 const Cookies = () => {
   const [value, setValue] = useState('');
 
@@ -52,17 +51,19 @@ const Cookies = () => {
       <h3 className="mt-10 mb-2 font-bold text-xl">Cookie Preferences</h3>
       <p>You can change your cookie settings below.</p>
       <div className="border flex p-2 text-center w-fit rounded-xl mt-6 cursor-pointer transition">
-        <CookiesButtons
-          label="Allow Cookies"
-          value={value}
-          defaultValue="allow"
-        />
+        <Suspense fallback={<Loading />}>
+          <CookiesButtons
+            label="Allow Cookies"
+            value={value}
+            defaultValue="allow"
+          />
 
-        <CookiesButtons
-          label="Reject Cookies"
-          value={value}
-          defaultValue="reject"
-        />
+          <CookiesButtons
+            label="Reject Cookies"
+            value={value}
+            defaultValue="reject"
+          />
+        </Suspense>
       </div>
     </section>
   );
